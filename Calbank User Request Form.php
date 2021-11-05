@@ -1,5 +1,23 @@
 <?php
+ $servername="localhost";
+ $username="root";
+ $password="";
+ $database_name="calbank userrqtform";
 
+ $conn=mysqli_connect($servername,$username,$password,$database_name);
+
+ // check connection
+ if(!$conn)
+ {
+     die("Connection Failed:" . mysqli_connect_error());
+ }
+
+ if(isset($_POST['save'])){
+     $Dept_Unit_Branch = $_POST['Dept_Unit_Branch'];
+
+
+     $sql_query = " INSERT INTO entry_info('Dept_Unit_Branch') VALUES ('$Dept_Unit_Branch') ";
+ }
     
     
 ?>
@@ -145,9 +163,9 @@
             </tr>
           </table> <br><br>
 
-         <center> <button>
-              Submit
-          </button> </center>
+         <center> 
+            <input type="submit" name="save" value="Submit" >     
+        </center>
        </td>
        
     
